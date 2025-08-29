@@ -2,12 +2,14 @@
 
 ## A) Personal GitHub account (Security log UI)
 - [ ] Sign in to GitHub.
-- [ ]	Open Settings → Security log (direct path: https://github.com/settings/security-log).
+- [ ]	Open Settings → Security Log
+  - [ ]	[/settings/security-log](https://github.com/settings/security-log)
 - [ ]	In the Filter events search box:
-  •	**Type**: Created repository
-  •	**Then add a free-text term**: s1ngularity-repository
-  •	**Optionally bound by date**: use the date pickers to focus on Aug 26–29, 2025.
-- [ ]	Review any matching rows. Click an entry to see details (timestamp, IP/actor, repo name).
+  - [ ] **Type**: Created repository
+  - [ ] **Then add a free-text term**: s1ngularity-repository
+  - [ ] **(Optionally) bound by date**: use the date pickers to focus on Aug 26–29, 2025.
+- [ ]	Review any matching rows
+  - [ ]	Click an entry to see details (timestamp, IP/actor, repo name).
 - [ ]	**If you find one**:
   - [ ]	Immediately make the repo Private (or delete if it’s the attacker’s exfil repo and you’ve preserved evidence).
   - [ ]	Capture the event details (timestamp, IP, repo value) for your incident notes.
