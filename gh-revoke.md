@@ -4,10 +4,7 @@ This covers personal access tokens (PATs) — both fine-grained and classic — 
 
 > Revoking an app’s authorization revokes its tokens.  ￼
 
-## Prereqs & Quicklinks
-
--	[ ] Signed into the correct GitHub account (top-right avatar → confirm username).
--	[ ] Optional quick links (paste into your browser):
+# Quicklinks
   ### Developer Settings (PATs)
   - [/settings/developers](https://github.com/settings/developers)
   - [https://github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens)
