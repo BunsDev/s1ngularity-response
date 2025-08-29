@@ -26,7 +26,8 @@
 You need to be an org owner to view the audit log.
 
 - [ ]	Go to the organization’s home page.
-- [ ]	Open Settings → Audit log (path looks like /organizations/<org>/settings/audit-log).
+- [ ]	Open Settings → Audit log
+  - Path looks like `/organizations/<org>/settings/audit-log`
 - [ ]	In the Query box, use:
   - [ ]	Action filter: action:repo.create
   - [ ]	Date range: created:2025-08-26..2025-08-29
