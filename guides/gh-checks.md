@@ -12,6 +12,29 @@ This script will:
 - Create a list of affected repositories for further action
 - Provide links to each repository for manual review
 
+## 🔍 Event-Based Detection
+Use GitHub Events API to detect repository renames and public events:
+```bash
+npm run detect:events
+# or: ./scripts/detection/detect-renames-events.sh [csv_file]
+```
+
+This script will:
+- Analyze recent GitHub events for repository renames
+- Detect repositories made public with s1ngularity patterns
+- Cross-reference with CSV data to show original repository names
+- Provide restoration guidance
+
+### Usage Examples
+```bash
+# Use default CSV file (events/rename-events.csv)
+./scripts/detection/detect-renames-events.sh
+
+# Use specific CSV file
+./scripts/detection/detect-renames-events.sh events/rename-bunsdev.csv
+./scripts/detection/detect-renames-events.sh events/rename-soulswap.csv
+```
+
 ## A) Personal GitHub account (Security log UI)
 - [ ] Sign in to GitHub.
 - [ ]	Open Settings → Security Log
@@ -37,7 +60,7 @@ This script will:
 
 You need to be an org owner to view the audit log.
 
-- [ ]	Go to the organization’s home page.
+- [ ]	Go to the organization's home page.
 - [ ]	Open Settings → Audit log
   - Path looks like `/organizations/<org>/settings/audit-log`
 - [ ]	In the Query box, use:
@@ -48,7 +71,7 @@ You need to be an org owner to view the audit log.
   - [ ]	Click any entry to view full details (actor, repo, IP, created_at).
 - [ ]	Record positives and take remediation:
   - [ ]	Revert repo to Private, lock down access, and check for unwanted forks.
-  - [ ]	Rotate credentials for the actor shown (they’re likely compromised).
+  - [ ]	Rotate credentials for the actor shown (they're likely compromised).
 
 - [ ] **Optional**: add a free-text contains filter
 
@@ -97,12 +120,12 @@ If malicious repositories are found, use these scripts for quick remediation:
 
 ```bash
 # Make repositories private immediately
-npm run secure:repos
-# or: ./scripts/secure-repos.sh
+npm run repos:secure
+# or: ./scripts/repos/secure-repos.sh
 
-# Restore original repository names (if they were renamed)
-npm run restore:repos
-# or: ./scripts/restore-repo-names.sh
+# Restore original repository names using CSV data
+npm run repos:restore
+# or: ./scripts/repos/restore-repos.sh <csv_file>
 
 # Monitor for ongoing suspicious activity
 npm run monitor:github

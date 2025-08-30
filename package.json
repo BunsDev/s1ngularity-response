@@ -19,8 +19,8 @@
     "revoke:cloud": "./scripts/credentials/revoke-cloud-apis.sh",
 
     "repos:secure": "./scripts/repos/secure-repos.sh",
-    "repos:map": "./scripts/repos/map-repos.sh",
-    "repos:restore": "./scripts/repos/restore-names.sh",
+    "repos:restore": "./scripts/repos/restore-repos.sh",
+    "detect:events": "./scripts/detection/detect-renames-events.sh",
 
     "monitor:github": "./scripts/monitoring/monitor-github-activity.sh",
     "monitor:secrets": "./scripts/monitoring/scan-for-secrets.sh",

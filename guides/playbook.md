@@ -3,8 +3,7 @@
 ## 🚨 Emergency Response
 If you suspect active compromise:
 ```bash
-npm run emergency
-# or: ./scripts/emergency-response.sh
+./scripts/emergency-response.sh
 ```
 
 ## 1. Identify Possible Exposure
@@ -27,6 +26,12 @@ npm run check:all
   # or: ./scripts/detection/check-github-repos.sh
   ```
   📋 See detailed instructions: [gh-checks.md](./gh-checks.md)
+
+- [ ] **Detect repository renames using GitHub Events API**
+  ```bash
+  npm run detect:events
+  # or: ./scripts/detection/detect-renames-events.sh [csv_file]
+  ```
 
 - [ ] **Check local system** for `/tmp/inventory.txt` and `/tmp/inventory.txt.bak`
 - [ ] **Check shell persistence** in `~/.bashrc` and `~/.zshrc` for `sudo shutdown -h 0`
@@ -92,13 +97,13 @@ npm run revoke:all
 - [ ] **Make malicious repos private** and audit commit history
   ```bash
   npm run repos:secure
-  # or: ./scripts/secure-repos.sh
+  # or: ./scripts/repos/secure-repos.sh
   ```
 
-- [ ] **Restore original repository names** (if repos were renamed)
+- [ ] **Restore original repository names** using CSV data
   ```bash
   npm run repos:restore
-  # or: ./scripts/restore-names.sh
+  # or: ./scripts/repos/restore-repos.sh <csv_file>
   ```
 
 - [ ] **Search for unauthorized forks** under attacker accounts
@@ -144,10 +149,10 @@ npm run monitor:all
 
 | Command | Script | Purpose |
 |---------|--------|---------|
-| `npm run emergency` | `emergency-response.sh` | Immediate containment and response |
 | `npm run check:all` | Multiple detection scripts | Run all exposure checks |
+| `npm run detect:events` | `detect-renames-events.sh` | Detect repo renames via GitHub Events API |
 | `npm run cleanup:all` | Multiple cleanup scripts | Remove all malicious code |
 | `npm run revoke:all` | Multiple credential scripts | Revoke all credentials |
 | `npm run repos:secure` | `secure-repos.sh` | Make repositories private |
-| `npm run repos:restore` | `restore-names.sh` | Restore original repo names |
+| `npm run repos:restore` | `restore-repos.sh` | Restore original repo names from CSV |
 | `npm run monitor:all` | Multiple monitoring scripts | Run all monitoring checks |

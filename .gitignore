@@ -9,3 +9,7 @@ repo-restore-mapping-*.txt
 .DS_Store
 *.txt
 *.log
+
+# events.json
+# rename-events.json
+# *.csv
