@@ -1,5 +1,17 @@
 # How to review GitHub logs for s1ngularity-repository-* creations
 
+## 🚀 Quick Start (Automated)
+Run the automated script to check for malicious repositories:
+```bash
+npm run check:repos
+# or: ./scripts/detection/check-github-repos.sh
+```
+
+This script will:
+- Scan all your repositories for the `s1ngularity-repository-*` pattern
+- Create a list of affected repositories for further action
+- Provide links to each repository for manual review
+
 ## A) Personal GitHub account (Security log UI)
 - [ ] Sign in to GitHub.
 - [ ]	Open Settings → Security Log
@@ -11,12 +23,12 @@
 - [ ]	Review any matching rows
   - [ ]	Click an entry to see details (timestamp, IP/actor, repo name).
 - [ ]	**If you find one**:
-  - [ ]	Immediately make the repo Private (or delete if it’s the attacker’s exfil repo and you’ve preserved evidence).
+  - [ ]	Immediately make the repo Private (or delete if it's the attacker's exfil repo and you've preserved evidence).
   - [ ]	Capture the event details (timestamp, IP, repo value) for your incident notes.
 
 ### Quick cross-check (personal account)
 - [ ]	Go to Your profile
-- [ ]	→ Repositories and search s1ngularity-repository in “Find a repository…” box
+- [ ]	→ Repositories and search s1ngularity-repository in "Find a repository…" box
 - [ ]	Spot any lingering repos the UI search turns up.
 
 ---
@@ -80,8 +92,30 @@ gh api \
 ---
 
 ## D) What to do if you find entries
+### 🚀 Automated Response
+If malicious repositories are found, use these scripts for quick remediation:
+
+```bash
+# Make repositories private immediately
+npm run secure:repos
+# or: ./scripts/secure-repos.sh
+
+# Restore original repository names (if they were renamed)
+npm run restore:repos
+# or: ./scripts/restore-repo-names.sh
+
+# Monitor for ongoing suspicious activity
+npm run monitor:github
+# or: ./scripts/monitoring/monitor-github-activity.sh
+```
+
+### Manual Steps
 - [ ]	Re-private or delete the malicious repo (after preserving evidence).
-- [ ]	Audit forks: open the repo’s Forks tab; remove unknown forks or file a GitHub takedown.
-- [ ]	Rotate the actor’s tokens (GitHub PAT/OAuth/SSH), then npm and any other exposed keys.
+- [ ]	Audit forks: open the repo's Forks tab; remove unknown forks or file a GitHub takedown.
+- [ ]	Rotate the actor's tokens (GitHub PAT/OAuth/SSH), then npm and any other exposed keys.
+  ```bash
+  npm run revoke:all
+  # or individual scripts: revoke:github, revoke:npm, revoke:cloud
+  ```
 - [ ]	Review org audit log for adjacent events (more repo.create/rename, deploy keys added, app installs).
 - [ ]	Document timestamps, actors, IPs, repos for incident records.

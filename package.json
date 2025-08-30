@@ -1,0 +1,42 @@
+{
+  "name": "s1ngularity-response",
+  "version": "1.0.0",
+  "description": "Defense against the dark arts to restore user credentials and ensure comprehensive safety response",
+  "scripts": {
+    "emergency": "./scripts/emergency-response.sh",
+    "check:all": "npm run check:nx && npm run check:repos && npm run check:local",
+    "check:nx": "./scripts/detection/check-nx-versions.sh",
+    "check:repos": "./scripts/detection/check-github-repos.sh",
+    "check:local": "./scripts/detection/check-local-indicators.sh",
+
+    "cleanup:all": "npm run cleanup:nx && npm run cleanup:persistence",
+    "cleanup:nx": "./scripts/cleanup/cleanup-nx.sh",
+    "cleanup:persistence": "./scripts/cleanup/remove-persistence.sh",
+    "revoke:all": "npm run revoke:github && npm run revoke:npm && npm run revoke:cloud",
+
+    "revoke:github": "./scripts/credentials/revoke-github.sh",
+    "revoke:npm": "./scripts/credentials/revoke-npm.sh",
+    "revoke:cloud": "./scripts/credentials/revoke-cloud-apis.sh",
+
+    "repos:secure": "./scripts/repos/secure-repos.sh",
+    "repos:map": "./scripts/repos/map-repos.sh",
+    "repos:restore": "./scripts/repos/restore-names.sh",
+
+    "monitor:github": "./scripts/monitoring/monitor-github-activity.sh",
+    "monitor:secrets": "./scripts/monitoring/scan-for-secrets.sh",
+    "monitor:all": "npm run monitor:github && npm run monitor:secrets"
+  },
+  "keywords": [
+    "security",
+    "s1ngularity",
+    "incident-response",
+    "nx",
+    "supply-chain-attack"
+  ],
+  "author": "BunsDev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BunsDev/s1ngularity-response.git"
+  }
+}

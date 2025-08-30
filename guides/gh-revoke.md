@@ -4,6 +4,19 @@ This covers personal access tokens (PATs) — both fine-grained and classic — 
 
 > Revoking an app’s authorization revokes its tokens.  ￼
 
+## 🚀 Quick Start (Automated)
+Run the automated GitHub credential revocation script:
+```bash
+npm run revoke:github
+# or: ./scripts/credentials/revoke-github.sh
+```
+
+This script will:
+- Generate new SSH keys with timestamp
+- Guide you through GitHub CLI re-authentication
+- Provide step-by-step manual instructions for token revocation
+- Update your SSH configuration
+
 # Quicklinks
   ### Developer Settings (PATs)
   - [/settings/developers](https://github.com/settings/developers)
@@ -57,6 +70,21 @@ If you find exposed PATs (yours or others’) on the internet, GitHub provides a
 ### After Revoking
 - [ ] Re-authenticate affected tools (git, CI, IDEs) using new tokens with the narrowest scopes needed.
 - [ ] For orgs, audit which integrations relied on revoked tokens and update their credentials.
+
+### 🔄 Additional Credential Rotation
+Don't forget to rotate other credentials that may have been compromised:
+```bash
+# Rotate npm tokens
+npm run revoke:npm
+# or: ./scripts/credentials/revoke-npm.sh
+
+# Rotate cloud and API credentials
+npm run revoke:cloud
+# or: ./scripts/credentials/revoke-cloud-apis.sh
+
+# Run all credential revocation scripts
+npm run revoke:all
+```
 
 ---
 
