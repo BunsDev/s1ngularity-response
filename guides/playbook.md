@@ -1,6 +1,6 @@
 # S1ngularity Attack Response Playbook
 
-## 🚨 Emergency Response
+## Emergency Response
 If you suspect active compromise:
 ```bash
 ./scripts/emergency-response.sh
@@ -25,7 +25,7 @@ npm run check:all
   npm run check:repos
   # or: ./scripts/detection/check-github-repos.sh
   ```
-  📋 See detailed instructions: [gh-checks.md](./gh-checks.md)
+  **See detailed instructions**: [gh-checks.md](./gh-checks.md)
 
 - [ ] **Detect repository renames using GitHub Events API**
   ```bash
