@@ -1,6 +1,6 @@
 # How to review GitHub logs for s1ngularity-repository-* creations
 
-## 🚀 Quick Start (Automated)
+## Quick Start (Automated)
 Run the automated script to check for malicious repositories:
 ```bash
 npm run check:repos
@@ -115,7 +115,7 @@ gh api \
 ---
 
 ## D) What to do if you find entries
-### 🚀 Automated Response
+### Automated Response
 If malicious repositories are found, use these scripts for quick remediation:
 
 ```bash
