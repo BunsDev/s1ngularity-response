@@ -4,7 +4,7 @@ This covers personal access tokens (PATs) — both fine-grained and classic — 
 
 > Revoking an app's authorization revokes its tokens.  ￼
 
-## 🚀 Quick Start (Automated)
+## Quick Start (Automated)
 Run the automated GitHub credential revocation script:
 ```bash
 npm run revoke:github
@@ -17,7 +17,7 @@ This script will:
 - Provide step-by-step manual instructions for token revocation
 - Update your SSH configuration
 
-## 🔄 Complete Credential Rotation
+## Complete Credential Rotation
 For comprehensive security, rotate all potentially compromised credentials:
 ```bash
 # Rotate all credentials at once
